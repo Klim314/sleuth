@@ -410,7 +410,7 @@ reads_per_base_transform <- function(reads_table, scale_factor_input,
     mapping <- data.table::as.data.table(mapping)
     # old stuff
     if (!(collapse_column %in% colnames(reads_table))) {
-      reads_table <- merge(reads_table, mapping, by = 'target_id', all.x=T)
+      reads_table <- merge(reads_table, mapping, by = 'target_id', all.x=T, allow.cartesian=T)
     }
     # browser()
     # reads_table <- dplyr::left_join(reads_table, mapping, by = 'target_id')
